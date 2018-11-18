@@ -14,23 +14,30 @@ public class MessageQueue {
         Message message;
 
         semaphore.acquire();
+        System.out.println("Critical section entered");
+
         if (messages.isEmpty()) message = null;
         else message = messages.pop();
 
-        sleep(50);
+        sleep(500);
 
         semaphore.release();
+        System.out.println("Critical section left");
 
         return message;
     }
 
     public void push(Message message) throws InterruptedException {
+
         semaphore.acquire();
+        System.out.println("Critical section entered");
+
 
         this.messages.push(message);
 
-        sleep(50);
+        sleep(500);
 
         semaphore.release();
+        System.out.println("Critical section left");
     }
 }

@@ -39,6 +39,7 @@ public class Connector {
                 try {
                     this.queue.push(producer.produce());
                 } catch (InterruptedException e) {
+                    System.out.println(String.format("Consumer %d interrupted!", producer.getId()));
                     break;
                 }
             }
@@ -61,6 +62,7 @@ public class Connector {
                     Message message = queue.pop();
                     consumer.consume(message);
                 } catch (InterruptedException e) {
+                    System.out.println(String.format("Consumer %d interrupted!", consumer.getId()));
                     break;
                 }
             }

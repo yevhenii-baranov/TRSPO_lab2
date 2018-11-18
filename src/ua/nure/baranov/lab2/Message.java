@@ -8,14 +8,8 @@ public class Message {
         this.payload = payload;
     }
 
-    public String getPayload() {
-        return payload;
-    }
-
     @Override
     public String toString() {
-        return "Message{" +
-                "payload='" + payload + '\'' +
-                '}';
+        return payload;
     }
 }
